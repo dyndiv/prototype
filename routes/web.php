@@ -13,4 +13,4 @@
 
 Route::get('/checktx', 'TokenController@getTransactions');
 Route::get('/sendtokens', 'TokenController@sendTokens');
-Route::get('/refund/{va}', 'TokenController@refund');
+Route::get('/refund/{val}', 'TokenController@refund');

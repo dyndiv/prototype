@@ -182,7 +182,7 @@ class TokenController extends Controller
         $gasPrice = $gasPrice['result'];
 
         $gasLimit = '0x493E0';
-        $to       = env('TOKEN');
+        $to       = env('CONTRACT');
         $value    = '0';
 
         $privateKey = env('PRIVATE_KEY1');
