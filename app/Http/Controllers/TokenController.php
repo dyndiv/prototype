@@ -18,7 +18,7 @@ class TokenController extends Controller
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, 'https://api.etherscan.io/api?module=account&action=txlist&address='.env('ADDRESS1').'&startblock='.$start_block.'&endblock=latest&sort=asc&apikey='.env('ETHERSCAN_APIKEY'));
+        curl_setopt($ch, CURLOPT_URL, 'https://api.etherscan.io/api?module=account&action=txlistinternal&address='.env('ADDRESS1').'&startblock='.$start_block.'&endblock=latest&sort=asc&apikey='.env('ETHERSCAN_APIKEY'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         $ret = json_decode(curl_exec($ch), true);
@@ -40,7 +40,7 @@ class TokenController extends Controller
         }
 
 
-        curl_setopt($ch, CURLOPT_URL, 'https://api.etherscan.io/api?module=account&action=txlist&address='.env('ADDRESS2').'&startblock='.$start_block.'&endblock=latest&sort=asc&apikey='.env('ETHERSCAN_APIKEY'));
+        curl_setopt($ch, CURLOPT_URL, 'https://api.etherscan.io/api?module=account&action=txlistinternal&address='.env('ADDRESS2').'&startblock='.$start_block.'&endblock=latest&sort=asc&apikey='.env('ETHERSCAN_APIKEY'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         $ret = json_decode(curl_exec($ch), true);
