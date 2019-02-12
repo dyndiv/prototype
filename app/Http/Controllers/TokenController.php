@@ -70,7 +70,7 @@ class TokenController extends Controller
         $gasPrice = $rpc->request('eth_gasPrice');
         $gasPrice = $gasPrice['result'];
 
-        $gasLimit = '0x186A0';
+        $gasLimit = '0x249F0';
         $to       = env('TOKEN');
         $value    = '0';
 
