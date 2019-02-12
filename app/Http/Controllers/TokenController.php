@@ -74,7 +74,7 @@ class TokenController extends Controller
         $to       = env('TOKEN');
         $value    = '0';
 
-        $addressTo = $rpc->createAddrParam(env('TOKEN'));
+        $addressTo = $rpc->createAddrParam(env('CONTRACT'));
 
         $privateKey = env('PRIVATE_KEY1');
         $address = env('ADDRESS1');
