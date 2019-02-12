@@ -111,8 +111,6 @@ class TokenController extends Controller
                 $tx = new TX();
                 $tx->hash = $res['result'];
                 $tx->save();
-                $transaction->status = 1;
-                $transaction->save();
                 $result[] = $res['result'];
             }
 
