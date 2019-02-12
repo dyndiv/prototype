@@ -88,9 +88,9 @@ class TokenController extends Controller
                                             ->where('value', '<>', '0')->get();
 
         $result = array();
-        foreach ($transactions as $transaction) {
+        foreach ($transactions as $tx) {
 
-            $val = gmp_init($transaction->value);
+            $val = gmp_init($tx->value);
             $val = gmp_strval($val, 16);
             $val = $rpc->createParam($val);
 
@@ -108,8 +108,10 @@ class TokenController extends Controller
             }
 
             if(isset($res['result']) &&  preg_match('/[a-f0-9]+/', $res['result'])) {
-                $tx = new TX();
-                $tx->hash = $res['result'];
+                $trans = new TX();
+                $trans->hash = $res['result'];
+                $trans->save();
+                $tx->status = 1;
                 $tx->save();
                 $result[] = $res['result'];
             }
@@ -135,9 +137,9 @@ class TokenController extends Controller
             ->where('value', '<>', '0')->get();
 
         $result = array();
-        foreach ($transactions as $transaction) {
+        foreach ($transactions as $tx) {
 
-            $val = gmp_init($transaction->value);
+            $val = gmp_init($tx->value);
             $val = gmp_strval($val, 16);
             $val = $rpc->createParam($val);
 
@@ -155,11 +157,11 @@ class TokenController extends Controller
             }
 
             if(isset($res['result']) && preg_match('/[a-f0-9]+/', $res['result'])) {
-                $tx = new TX();
-                $tx->hash = $res['result'];
+                $trans = new TX();
+                $trans->hash = $res['result'];
+                $trans->save();
+                $tx->status = 1;
                 $tx->save();
-                $transaction->status = 1;
-                $transaction->save();
                 $result[] = $res['result'];
             }
 
